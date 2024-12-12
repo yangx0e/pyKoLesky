@@ -1,0 +1,1 @@
+A Python wrapper for the Julia package [KoLesky.jl](https://github.com/f-t-s/KoLesky.jl), which implements the sparse Cholesky decomposition algorithm described in the paper *"Sparse Cholesky Factorization by Kullback-Leibler Minimization"* by Florian Schäfer, Matthias Katzfuss, and Houman Owhadi.
