@@ -1,6 +1,6 @@
 import torch
 from scipy.spatial import KDTree  # Importing KDTree for efficient nearest-neighbor search
-from pyKoLesky.maxheap import *
+from maxheap import *
 import matplotlib.pyplot as plt
 
 def __reverse_maximin(x, initial = None):
