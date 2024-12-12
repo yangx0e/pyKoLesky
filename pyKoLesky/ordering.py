@@ -47,18 +47,6 @@ def maximin(x, initial = None):
     return torch.flip(indices, dims=[0]), torch.flip(lengths, dims=[0])
 
 
-# def sparsity_pattern(x, lengths, rho):
-#     """Compute the sparity pattern given the ordered x."""
-#     # O(n log^2 n + n s)
-#     tree, offset, length_scale = KDTree(x.numpy()), 0, lengths[0]
-#     sparsity = {}
-#     for i in range(len(x)):
-#         # length scale doubled, re-build tree to remove old points
-#         if lengths[i] > 2 * length_scale:
-#             tree, offset, length_scale = KDTree(x[i:].numpy()), i, lengths[i]
-#         sparsity[i] = [offset + j for j in tree.query_ball_point(x[i], rho * lengths[i]) if offset + j >= i]
-#     return sparsity
-
 def sparsity_pattern(x, lengths, rho):
     """Compute the sparity pattern given the ordered x."""
     # O(n log^2 n + n s)
@@ -80,27 +68,5 @@ def plot_point(x, xorders, points, porders):
 
     for i, idx in enumerate(porders):
         plt.text(points[i, 0].item() + 0.04, points[i, 1].item(), f'{idx}', fontsize=12, ha='right', color='red')
-
-    plt.show()
-
-
-
-if __name__ == "__main__":
-    # Generate 10 random points in the range [0, 1] x [0, 1]
-    n_points = 50
-    torch.manual_seed(55)  # For reproducibility
-    x = torch.rand(n_points, 2)  # 10 points in 2D space
-
-    # Perform reverse maximin ordering
-    indexes, lengths = reverse_maximin(x)
-
-    # Plotting the points with their ordering labels
-    fig, ax = plt.subplots()
-    plt.scatter(x[:, 0].numpy(), x[:, 1].numpy(), color='gray', alpha=0.3)
-
-    # Label each point with its order
-    for i, idx in enumerate(reversed(indexes)):
-        plt.text(x[idx, 0].item() + 0.01, x[idx, 1].item(), f'{i + 1}',
-                 fontsize=12, ha='right', color='red')
 
     plt.show()
