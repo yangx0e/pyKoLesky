@@ -1,4 +1,4 @@
-from ordering import *
+from .ordering import *
 
 def __col(Theta, s, nugget = 1e-12):
     """

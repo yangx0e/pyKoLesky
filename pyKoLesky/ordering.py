@@ -1,7 +1,6 @@
 import torch
 from scipy.spatial import KDTree  # Importing KDTree for efficient nearest-neighbor search
-from maxheap import *
-import matplotlib.pyplot as plt
+from .maxheap import *
 
 def __reverse_maximin(x, initial = None):
     """Return the reverse maximin ordering and length scales."""
