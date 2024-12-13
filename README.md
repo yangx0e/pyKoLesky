@@ -27,7 +27,7 @@ We greatly appreciate your feedback! If you encounter any issues, please report 
 You can install `pyKoLesky` from [PyPI](https://pypi.org/project/pyKoLesky/) using `pip`:
 
 ```bash
-pip install pykolesky
+pip install pyKoLesky
 ```
 
 
